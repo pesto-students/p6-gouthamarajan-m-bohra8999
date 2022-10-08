@@ -93,6 +93,19 @@ a:hover {
 }
 /* ------------------------ */
 
+/* ------footer-------- */
+footer {
+  background-color: #ddd;
+  width: 100%;
+  margin-top: 5vh;
+  height: 10vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* -------------------- */
+
 @media all and (max-width: 600px) {
   .container {
     padding: 5px;
