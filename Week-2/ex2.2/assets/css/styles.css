@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  justify-content: center;
+  width: 200px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  flex: 50%;
+  transition-property: transform;
+  transition-duration: 1s;
+}
+
+.box-red {
+  background-color: red;
+}
+.box-green {
+  background-color: green;
+}
+.box-yellow {
+  background-color: yellow;
+}
+.box-blue {
+  background-color: blue;
+}
+
+.box-container:hover .box-blue {
+  transform: rotateZ(90deg) translateY(10vh);
+}
+.box-container:hover .box-red {
+  transform: rotateZ(-90deg) translateY(10vh);
+}
+.box-container:hover .box-green {
+  transform: rotateZ(-90deg) translateY(-10vh);
+}
+.box-container:hover .box-yellow {
+  transform: rotateZ(90deg) translateY(-10vh);
+}
