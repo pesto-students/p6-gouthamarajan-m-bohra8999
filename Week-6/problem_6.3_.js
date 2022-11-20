@@ -16,3 +16,5 @@ function sort(arr) {
 }
 
 console.log(sort([1, 0, 2, 1, 0, 0]));
+
+// T: O(N)  S: O(1)
