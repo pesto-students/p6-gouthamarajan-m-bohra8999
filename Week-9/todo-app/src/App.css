@@ -1,0 +1,40 @@
+.app {
+  padding: 30px 30%;
+  background-color: aqua;
+  height: 100vh;
+}
+
+.todo {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+}
+
+.todo > * {
+  flex-grow: 1;
+}
+
+.todo > div {
+  padding-left: 10px;
+  flex-basis: 20%;
+}
+
+.todoList {
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.todo-item {
+  overflow-wrap: break-word;
+  overflow: hidden;
+  flex-basis: 80%;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.unchecked {
+  text-decoration: none;
+}
