@@ -1,0 +1,14 @@
+.shortner-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  flex-direction: column;
+  align-items: center;
+
+  /* min-height: 500px; */
+  /* background-color: #dfdbe5; */
+}
+
+.shortner-container > div:nth-child(1) {
+  margin-bottom: 20px;
+}

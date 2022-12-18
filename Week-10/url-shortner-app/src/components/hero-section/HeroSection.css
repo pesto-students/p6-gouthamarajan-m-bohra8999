@@ -1,0 +1,19 @@
+.hero-section-container {
+  min-height: calc(100vh - 250px);
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.heroHeading h1 {
+  font-size: 3em;
+  margin: 0px;
+}
+
+.heroHeading p {
+  font-size: 1.3em;
+  margin: 10px 0px;
+  width: 600px;
+}

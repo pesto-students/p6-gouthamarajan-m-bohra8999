@@ -1,0 +1,41 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--navbar);
+  color: black;
+}
+
+.navbar-logo {
+  margin-left: 30px;
+}
+
+.navbar-logo a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-links a {
+  color: var(--links);
+
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navbar-auth {
+  margin-right: 10px;
+}
+
+.navbar-auth a {
+  color: var(--links);
+
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.links a:hover {
+  cursor: pointer;
+  color: var(--links-hover);
+}
