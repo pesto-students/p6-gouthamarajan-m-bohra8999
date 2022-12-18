@@ -33,7 +33,7 @@ const ResultBox = ({ data, onCopy }) => {
     <div className='result-box'>
       {data.map((link, i) => {
         return (
-          <div key={link.code} className='item'>
+          <div key={link.code + i} className='item'>
             <div className='link' title={link.original_link}>
               {link.original_link}
             </div>

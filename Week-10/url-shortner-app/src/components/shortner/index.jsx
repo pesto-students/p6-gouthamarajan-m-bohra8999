@@ -5,6 +5,7 @@ import './Shortner.css';
 import ResultBox from './result-box';
 import throttle from 'lodash.throttle';
 import ERROR_CODES from './error_codes';
+import image from '../../assets/icon/spinner.svg';
 
 const Shortner = () => {
   const [shortenedLinks, setShortenedLinks] = useState([]);
@@ -33,7 +34,7 @@ const Shortner = () => {
   return (
     <section className='shortner-container'>
       <InputBox errorMessage={error} onClick={fetchDataThrottled.current} />
-      <ResultBox data={shortenedLinks} />
+      {isLoading ? <img src={image} alt='spinner'></img> : <ResultBox data={shortenedLinks} />}
     </section>
   );
 };
