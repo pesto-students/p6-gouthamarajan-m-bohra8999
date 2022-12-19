@@ -21,9 +21,7 @@ class Queue {
       }
     }
 
-    let x = this.s2[0];
-    this.s2.shift();
-    return x;
+    return this.s2.shift();
   }
 }
 
