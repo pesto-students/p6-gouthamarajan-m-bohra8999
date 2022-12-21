@@ -1,16 +1,22 @@
-import { Button } from 'react-bootstrap';
-
-export default function Todo({ todo, index, markTodo, removeTodo }) {
+export default function Todo(props) {
+  const { todo, index, markTodo, removeTodo } = props;
   return (
-    <div className='todo'>
-      <span className={`todo-item ${todo.isDone ? 'checked' : 'unchecked'}`}>{todo.text}</span>
-      <div>
-        <Button variant='outline-success' onClick={() => markTodo(index)}>
-          ✓
-        </Button>{' '}
-        <Button variant='outline-danger' onClick={() => removeTodo(index)}>
-          ✕
-        </Button>
+    <div className='todo-item'>
+      <span
+        tabIndex='0'
+        role='navigation'
+        aria-label='todo item'
+        className={todo.isDone ? 'todo-item__checked' : 'todo-item__unchecked'}
+      >
+        {todo.text}
+      </span>
+      <div className='todo-item__btn-container'>
+        <button className='todo-item__btn btn--primary' onClick={() => markTodo(index)}>
+          {todo.isDone ? 'Uncheck' : 'Check'}
+        </button>
+        <button className='todo-item__btn btn--secondary' onClick={() => removeTodo(index)}>
+          Remove
+        </button>
       </div>
     </div>
   );

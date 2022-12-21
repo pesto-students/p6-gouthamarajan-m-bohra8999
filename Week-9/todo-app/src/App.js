@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Card } from 'react-bootstrap';
-import FormTodo from './components/FormTodo';
+import AddToDo from './components/AddToDo';
 import Todo from './components/Todo';
 import './App.css';
 
@@ -25,7 +24,7 @@ function App() {
   ]);
 
   const addTodo = (text) => {
-    const newTodos = [...todos, { text }];
+    const newTodos = [{ text }, ...todos];
     setTodos(newTodos);
   };
 
@@ -44,18 +43,14 @@ function App() {
 
   return (
     <div className='app'>
-      <div className='container'>
-        <h1 className='text-center mb-4'>Todo Manager</h1>
-        <FormTodo addTodo={addTodo} />
-        <div className='todoList'>
-          {todos.map((todo, index) => (
-            <Card key={index}>
-              <Card.Body>
-                <Todo key={index} index={index} todo={todo} markTodo={markTodo} removeTodo={removeTodo} />
-              </Card.Body>
-            </Card>
-          ))}
-        </div>
+      <h1 className='app__title' tabIndex={0} aria-label='title'>
+        Todo Manager
+      </h1>
+      <AddToDo onAdd={addTodo} />
+      <div className='list-container'>
+        {todos.map((todo, index) => (
+          <Todo key={index} index={index} todo={todo} markTodo={markTodo} removeTodo={removeTodo} />
+        ))}
       </div>
     </div>
   );
