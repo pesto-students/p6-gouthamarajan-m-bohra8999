@@ -2,23 +2,33 @@ import React from 'react';
 import './ResultBox.css';
 
 const ResultBox = ({ data, onCopy }) => {
-  // data = [
-  //   {
-  //     full_short_link: 'full_short_linkfull_short_linkfull_short_link',
-  //     original_link: 'original_linkoriginal_linkoriginal_linkoriginal_linkoriginal_link',
-  //     code: 'asdw2133erf',
-  //   },
-  //   {
-  //     full_short_link: 'full_short_link',
-  //     original_link: 'original_link',
-  //     code: 'asdw213hjns',
-  //   },
-  //   {
-  //     full_short_link: 'full_short_link',
-  //     original_link: 'original_link',
-  //     code: 'asdw21[;ol]',
-  //   },
-  // ];
+  data = [
+    {
+      full_short_link: 'full_short_linkfull_short_linkfull_short_link',
+      original_link: 'original_linkoriginal_linkoriginal_linkoriginal_linkoriginal_link',
+      code: 'asdw2133erf',
+    },
+    {
+      full_short_link: 'full_short_link',
+      original_link: 'original_link',
+      code: 'asdw213hjns',
+    },
+    {
+      full_short_link: 'full_short_link',
+      original_link: 'original_link',
+      code: 'asdw21[;ol]',
+    },
+    {
+      full_short_link: 'full_short_link',
+      original_link: 'original_link',
+      code: 'asdw21[;ol]',
+    },
+    {
+      full_short_link: 'full_short_link',
+      original_link: 'original_link',
+      code: 'asdw21[;ol]',
+    },
+  ];
 
   const handleCopy = (e, text) => {
     navigator.clipboard.writeText(text);

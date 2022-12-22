@@ -13,6 +13,10 @@
   margin-bottom: 20px;
 }
 
+.footer-section-logo {
+  margin-bottom: 20px;
+}
+
 .footer-section-logo a {
   text-decoration: none;
   color: white;
@@ -26,6 +30,11 @@
 
 .footer-section-links li {
   margin-bottom: 10px;
+}
+
+.footer-section h3 {
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .footer-section-links a {

@@ -11,13 +11,13 @@ const InputBox = ({ onClick, errorMessage }) => {
 
   return (
     <>
-      <div className='input-box-container'>
+      <div className='input-box'>
         <form
           onSubmit={(e) => {
             e.preventDefault();
             onClick(userInput);
           }}
-          className='form'
+          className='input-box__form'
         >
           <input
             type='text'
@@ -27,12 +27,12 @@ const InputBox = ({ onClick, errorMessage }) => {
               setUserInput(e.target.value);
             }}
             ref={inputRef}
-            className='input-field'
+            className='input-box__field'
           />
-          <button className='submit-button' type='submit'>
-            Shorten It!
+          <button className='input-box__action-btn' type='submit'>
+            SHORTEN IT!
           </button>
-          {errorMessage && <div className='error-message'>{errorMessage}</div>}
+          {errorMessage && <div className='input-box__error'>{errorMessage}</div>}
         </form>
       </div>
     </>

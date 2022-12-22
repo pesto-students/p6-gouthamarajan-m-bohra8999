@@ -1,22 +1,30 @@
-.input-box-container {
-  border: 1px solid #ccc;
-  width: 600px;
+.input-box {
+  /* border: 1px solid #ccc; */
+  width: 100%;
+  max-width: 600px;
   padding: 30px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.input-field {
+.input-box__form {
+  width: 500px;
+}
+
+.input-box__field {
+  width: 100%;
   border: none;
   border-radius: 10px;
   font-size: large;
   outline: none;
   padding: 0.7em;
-  margin-right: 10px;
-  width: 70%;
+  margin-bottom: 10px;
 }
 
-.submit-button {
+.input-box__action-btn {
   border: none;
   outline: none;
   background: #ccc;
@@ -24,13 +32,14 @@
   padding: 15px;
   cursor: pointer;
   border-radius: 10px;
+  float: right;
 }
 
-.submit-button:hover {
+.input-box__action-btn:hover {
   background-color: black;
 }
 
-.error-message {
+.input-box__error {
   color: #ff0033;
   font-size: small;
 }
