@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<section
+  className="shortner-container"
+>
+  <div
+    className="input-box"
+  >
+    <form
+      className="input-box__form"
+      name="search-bar"
+      onSubmit={[Function]}
+    >
+      <input
+        className="input-box__field"
+        data-testid="name-input"
+        onChange={[Function]}
+        placeholder="Enter link"
+        type="text"
+        value=""
+      />
+      <button
+        className="input-box__action-btn"
+        type="submit"
+      >
+        SHORTEN IT!
+      </button>
+    </form>
+  </div>
+</section>
+`;

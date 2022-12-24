@@ -27,7 +27,7 @@
 .input-box__action-btn {
   border: none;
   outline: none;
-  background: #ccc;
+  background: rgb(149, 147, 147);
   color: #fff;
   padding: 15px;
   cursor: pointer;

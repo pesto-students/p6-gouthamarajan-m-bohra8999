@@ -6,7 +6,7 @@ const InputBox = ({ onClick, errorMessage }) => {
   const inputRef = useRef();
 
   useEffect(() => {
-    inputRef.current.focus();
+    inputRef.current?.focus();
   }, []);
 
   return (
@@ -18,25 +18,33 @@ const InputBox = ({ onClick, errorMessage }) => {
             onClick(userInput);
           }}
           className='input-box__form'
+          name='search-bar'
         >
           <input
             type='text'
-            placeholder='Enter link to be shortened'
+            placeholder='Enter link'
             value={userInput}
             onChange={(e) => {
               setUserInput(e.target.value);
             }}
             ref={inputRef}
             className='input-box__field'
+            data-testid='name-input'
           />
           <button className='input-box__action-btn' type='submit'>
             SHORTEN IT!
           </button>
-          {errorMessage && <div className='input-box__error'>{errorMessage}</div>}
+          {errorMessage && (
+            <div role='alert' className='input-box__error'>
+              {errorMessage}
+            </div>
+          )}
         </form>
       </div>
     </>
   );
 };
+
+InputBox.displayName = 'Input Box';
 
 export default InputBox;
