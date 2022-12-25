@@ -1,0 +1,13 @@
+.shortner-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .shortner-container {
+    padding: 20px;
+  }
+}
