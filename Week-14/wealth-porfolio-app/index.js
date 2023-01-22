@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const apiRoutes = require('./src/routes');
 const bodyParser = require('body-parser');
+const connectDB = require('./src/config/db');
 
 const app = express();
 app.use(bodyParser.json());
@@ -25,6 +26,8 @@ app.get('/register', (req, res) => {
 
 // api routes
 app.use('/api', apiRoutes);
+
+connectDB();
 
 app.listen(3000, () => {
   console.log(`server is up and running on port ${PORT}...`);
