@@ -1,8 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
+const apiRoutes = require('./src/routes');
+const bodyParser = require('body-parser');
 
 const app = express();
-require('dotenv').config();
+app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 3000;
 
@@ -14,6 +17,14 @@ app.set('views', path.join(__dirname, './src/views'));
 app.get('/', function (req, res) {
   res.render('pages/index');
 });
+
+// register page
+app.get('/register', (req, res) => {
+  res.render('pages/register');
+});
+
+// api routes
+app.use('/api', apiRoutes);
 
 app.listen(3000, () => {
   console.log(`server is up and running on port ${PORT}...`);
