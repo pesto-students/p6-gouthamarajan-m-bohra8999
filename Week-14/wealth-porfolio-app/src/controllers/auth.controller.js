@@ -1,7 +1,10 @@
 const bcrypt = require('bcryptjs');
 const User = require('../models/user.schema');
+const jwt = require('jsonwebtoken');
 
-const register = async (username, plainTextPassword) => {
+const JWT_SECRET = process.env.JWT_SECRET;
+
+const register = async (name, username, plainTextPassword) => {
   if (!username || typeof username !== 'string') {
     throw Error('Invalid username');
   }
@@ -18,6 +21,7 @@ const register = async (username, plainTextPassword) => {
 
   try {
     const response = await User.create({
+      name,
       username,
       password,
     });
@@ -35,6 +39,34 @@ const register = async (username, plainTextPassword) => {
   }
 };
 
+const login = async (username, password) => {
+  try {
+    const user = await User.findOne({ username }).lean();
+
+    if (!user) {
+      throw Error('Invalid username/password');
+    }
+
+    if (await bcrypt.compare(password, user.password)) {
+      // the username, password combination is successful
+
+      const token = jwt.sign(
+        {
+          id: user._id,
+          username: user.username,
+        },
+        JWT_SECRET
+      );
+
+      return token;
+    }
+    throw Error('Invalid username/password');
+  } catch (error) {
+    throw Error(error);
+  }
+};
+
 module.exports = {
   register,
+  login,
 };

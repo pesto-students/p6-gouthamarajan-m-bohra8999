@@ -7,16 +7,15 @@
     <header><%- include('../partials/header'); %></header>
 
     <main>
-      <h1 class="display-4">Registration</h1>
-      <form id="reg-form" class="m-3">
-        <input type="text" autocomplete="off" id="name" placeholder="Name" required />
+      <h1 class="display-4">Login</h1>
+      <form id="login-form" class="m-3">
         <input type="text" autocomplete="off" id="username" placeholder="Username" required />
         <input type="password" autocomplete="off" id="password" placeholder="Password" required />
-        <input type="submit" value="Register" />
+        <input type="submit" value="Login" />
       </form>
 
       <script>
-        const form = document.getElementById('reg-form');
+        const form = document.getElementById('login-form');
         form.addEventListener('submit', registerUser);
 
         async function registerUser(event) {
@@ -24,7 +23,7 @@
           const username = document.getElementById('username').value;
           const password = document.getElementById('password').value;
 
-          const result = await fetch('/api/auth/register', {
+          const result = await fetch('/api/auth/login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -36,8 +35,7 @@
           }).then((res) => res.json());
 
           if (result.status === 200) {
-            // everythign went fine
-            alert('Registered successfully!');
+            alert('Loggedin successfully!');
           } else {
             alert(result.error);
           }

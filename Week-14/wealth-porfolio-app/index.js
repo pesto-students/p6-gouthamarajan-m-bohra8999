@@ -4,9 +4,12 @@ const path = require('path');
 const apiRoutes = require('./src/routes');
 const bodyParser = require('body-parser');
 const connectDB = require('./src/config/db');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 app.use(bodyParser.json());
+
+app.use(cookieParser());
 
 const PORT = process.env.PORT || 3000;
 
@@ -18,6 +21,16 @@ app.set('views', path.join(__dirname, './src/views'));
 app.get('/', function (req, res) {
   res.render('pages/index');
 });
+
+// test
+// app.post('/test', function (req, res) {
+//   res.cookie('session', '12345', { httpOnly: true });
+//   res.send('Cookie set!');
+// });
+// app.get('/test', function (req, res) {
+//   const sessionCookie = req.cookies.session;
+//   res.send(`Your session cookie is: ${sessionCookie}`);
+// });
 
 // register page
 app.get('/register', (req, res) => {
