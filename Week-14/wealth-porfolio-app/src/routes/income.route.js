@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const incomeController = require('../controllers/income.controller');
+const SendMail = require('../utility/sendEmail');
 
 router.post('/create', async (req, res) => {
   const { type, amount } = req.body;
   try {
     const user = req.user;
     let response = await incomeController.addIncome(type, amount, user);
+    SendMail.sendTo(user.email, SendMail.templates.expenseTemplate);
     res.json({ data: response, status: 200 });
   } catch (error) {
     res.send({ status: 409, error: error.message });

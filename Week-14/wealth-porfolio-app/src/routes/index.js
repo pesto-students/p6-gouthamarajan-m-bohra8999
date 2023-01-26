@@ -4,6 +4,7 @@ const authRoutes = require('./auth.route');
 const expenseRoutes = require('./expense.route');
 const incomeRoutes = require('./income.route');
 const metricsRoutes = require('./metrics.route');
+const uploadRoutes = require('./upload.route');
 const jwt = require('jsonwebtoken');
 
 const checkSession = (req, res, next) => {
@@ -24,5 +25,6 @@ router.use(checkSession);
 router.use('/expense', expenseRoutes);
 router.use('/income', incomeRoutes);
 router.use('/metrics', metricsRoutes);
+router.use('/upload', uploadRoutes);
 
 module.exports = router;
