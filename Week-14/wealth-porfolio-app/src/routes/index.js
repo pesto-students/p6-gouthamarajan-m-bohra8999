@@ -3,6 +3,7 @@ const router = express.Router();
 const authRoutes = require('./auth.route');
 const expenseRoutes = require('./expense.route');
 const incomeRoutes = require('./income.route');
+const metricsRoutes = require('./metrics.route');
 const jwt = require('jsonwebtoken');
 
 const checkSession = (req, res, next) => {
@@ -22,5 +23,6 @@ router.use('/auth', authRoutes);
 router.use(checkSession);
 router.use('/expense', expenseRoutes);
 router.use('/income', incomeRoutes);
+router.use('/metrics', metricsRoutes);
 
 module.exports = router;

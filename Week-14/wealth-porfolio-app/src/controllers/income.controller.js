@@ -1,4 +1,4 @@
-const Income = require('../models/Income.schema');
+const Income = require('../models/income.schema');
 
 // add Income to database
 async function addIncome(type, amount, user) {

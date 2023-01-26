@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const incomeController = require('../controllers/income.controller');
-const moment = require('moment');
 
 router.post('/create', async (req, res) => {
   const { type, amount } = req.body;
