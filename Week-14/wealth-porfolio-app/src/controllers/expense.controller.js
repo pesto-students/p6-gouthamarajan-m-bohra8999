@@ -64,4 +64,16 @@ async function updateExpense(expenseId, user, type, amount) {
   }
 }
 
+// filter expense
+async function filterByDate(user, params) {
+  try {
+    let { from, to } = params;
+    const query = { updatedAt: { $gte: new Date(from), $lte: new Date(to) }, username: { $eq: user.id } };
+    const result = await Expense.find(query).toArray();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = { addExpense, getAllExpense, deleteExpense, updateExpense, getById };

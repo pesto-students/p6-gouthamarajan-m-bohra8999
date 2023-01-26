@@ -56,4 +56,14 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.get('/filter', async (req, res) => {
+  try {
+    const user = req.user;
+    let response = await expenseController.filter(user, req.params);
+    res.json({ data: response, status: 200 });
+  } catch (error) {
+    res.send({ status: 409, error: error.message });
+  }
+});
+
 module.exports = router;

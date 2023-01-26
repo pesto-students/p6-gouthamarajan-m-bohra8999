@@ -64,4 +64,16 @@ async function updateIncome(IncomeId, user, type, amount) {
   }
 }
 
+// filter income
+async function filterByDate(user, params) {
+  try {
+    let { from, to } = params;
+    const query = { updatedAt: { $gte: new Date(from), $lte: new Date(to) }, username: { $eq: user.id } };
+    const result = await Income.find(query).toArray();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = { addIncome, getAllIncome, deleteIncome, updateIncome, getById };
