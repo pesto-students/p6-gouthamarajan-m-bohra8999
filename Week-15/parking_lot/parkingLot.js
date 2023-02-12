@@ -51,8 +51,22 @@ let leave = async (slot) => {
   }
 };
 
+let status = async () => {
+  if (maxSize === 0) {
+    return 'parking lot is not initiated';
+  } else if (cars.length > 0) {
+    console.log('Slot No.\tRegistration No.\tColor');
+    cars.forEach(function (row) {
+      console.log(row.slot + '\t' + row.registratonNo + '\t' + row.color);
+    });
+  } else {
+    return `Parking lot is empty`;
+  }
+};
+
 module.exports = {
   createParkingLot,
   park,
   leave,
+  status,
 };
