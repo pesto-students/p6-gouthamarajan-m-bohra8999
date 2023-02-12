@@ -72,6 +72,10 @@ const main = () => {
         }
         break;
 
+      case 'exit':
+        rl.pause();
+        break;
+
       default:
         console.log(
           'Seems like an issue with command that you typed , please note predeifed commands are case sensitive and matched as per the description!'
