@@ -1,4 +1,5 @@
 const readline = require('readline');
+const parkingLotInstance = require('./parkingLot');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -7,7 +8,21 @@ const rl = readline.createInterface({
 const main = () => {
   rl.on('line', async (input) => {
     input = input.split(' ');
-    console.log(input);
+    switch (input[0]) {
+      case 'create_parking_lot':
+        try {
+          const result = parkingLotInstance.createParkingLot(input[1]);
+          console.log(result);
+        } catch (e) {
+          console.log(`error occured ==> ${e}`);
+        }
+        break;
+
+      default:
+        console.log(
+          'Seems like an issue with command that you typed , please note predeifed commands are case sensitive and matched as per the description!'
+        );
+    }
   });
 };
 
