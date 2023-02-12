@@ -1,6 +1,7 @@
 let maxSize = 0;
 let availableSlot = [];
 let cars = [];
+const utilFunctions = require('./helpers/utils');
 
 let createParkingLot = async (size) => {
   try {
@@ -32,7 +33,26 @@ let park = async (registratonNo, color) => {
   }
 };
 
+let leave = async (slot) => {
+  slot = parseInt(slot);
+  if (maxSize === 0) {
+    return 'parking lot is not initiated';
+  } else if (cars.length > 0) {
+    if (await utilFunctions.search(slot, 'slot', cars)) {
+      cars = await utilFunctions.remove(slot, 'slot', cars);
+      availableSlot.push(slot);
+      availableSlot.sort();
+      return `Slot  numbmer ${slot} is free`;
+    } else {
+      return ` Slot ${slot} is already empty `;
+    }
+  } else {
+    return `Parking lot is empty`;
+  }
+};
+
 module.exports = {
   createParkingLot,
   park,
+  leave,
 };

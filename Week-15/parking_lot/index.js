@@ -19,9 +19,17 @@ const main = () => {
         break;
 
       case 'park':
-        // console.log("input", input);
         try {
           const result = await parkingLotInstance.park(input[1].trim(), input[2].trim());
+          console.log(result);
+        } catch (e) {
+          console.log(`error occured ==> ${e}`);
+        }
+        break;
+
+      case 'leave':
+        try {
+          const result = await parkingLotInstance.leave(input[1]);
           console.log(result);
         } catch (e) {
           console.log(`error occured ==> ${e}`);
