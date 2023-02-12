@@ -18,6 +18,16 @@ const main = () => {
         }
         break;
 
+      case 'park':
+        // console.log("input", input);
+        try {
+          const result = await parkingLotInstance.park(input[1].trim(), input[2].trim());
+          console.log(result);
+        } catch (e) {
+          console.log(`error occured ==> ${e}`);
+        }
+        break;
+
       default:
         console.log(
           'Seems like an issue with command that you typed , please note predeifed commands are case sensitive and matched as per the description!'
