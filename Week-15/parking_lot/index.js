@@ -45,6 +45,33 @@ const main = () => {
         }
         break;
 
+      case 'registration_numbers_for_cars_with_colour':
+        try {
+          const result = await parkingLotInstance.getRegistrationNumbersFromColor(input[1].trim());
+          console.log(result);
+        } catch (e) {
+          console.log(`error occured ==> ${e}`);
+        }
+        break;
+
+      case 'slot_numbers_for_cars_with_colour':
+        try {
+          const result = await parkingLotInstance.getSlotNumbersFromColor(input[1].trim());
+          console.log(result);
+        } catch (e) {
+          console.log(`error occured ==> ${e}`);
+        }
+        break;
+
+      case 'slot_number_for_registration_number':
+        try {
+          const result = await parkingLotInstance.getSlotNumberFromRegNo(input[1].trim());
+          console.log(result);
+        } catch (e) {
+          console.log(`error occured ==> ${e}`);
+        }
+        break;
+
       default:
         console.log(
           'Seems like an issue with command that you typed , please note predeifed commands are case sensitive and matched as per the description!'
